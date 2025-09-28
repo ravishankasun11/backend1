@@ -1,0 +1,19 @@
+{
+  "name": "travel-backend-functions",
+  "version": "1.0.0",
+  "description": "Travel Advisory Backend as Netlify Functions",
+  "main": "netlify/functions/api.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Build complete'"
+  },
+  "dependencies": {
+    "mongoose": "^7.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "google-auth-library": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
