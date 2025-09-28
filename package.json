@@ -1,0 +1,49 @@
+{
+  "name": "travel-advisory-system",
+  "version": "1.0.0",
+  "description": "A minimalist travel advisory and weather system with Nothing OS-inspired design",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:serve\"",
+    "start": "npm run backend:start",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:start": "cd backend && npm start",
+    "backend:install": "cd backend && npm install",
+    "frontend:serve": "cd frontend && python -m http.server 8080",
+    "frontend:serve-node": "cd frontend && npx http-server -p 8080 -c-1",
+    "install-all": "npm install && npm run backend:install",
+    "setup": "npm run install-all && echo 'Please configure your .env file in the backend directory'",
+    "build": "echo 'Build process for production deployment'",
+    "test": "cd backend && npm test",
+    "lint": "echo 'Linting not configured yet'",
+    "clean": "rm -rf node_modules backend/node_modules",
+    "reset": "npm run clean && npm run install-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/travel-advisory-system.git"
+  },
+  "keywords": [
+    "travel",
+    "weather",
+    "advisory",
+    "nothing-os",
+    "minimalist",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "workspaces": [
+    "backend"
+  ]
+}

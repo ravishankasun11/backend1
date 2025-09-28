@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL.SYS - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+
+    <!-- Add after opening <body> tag -->
+<div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+    <span id="theme-icon">☀️</span>
+</div>
+    <div class="grid-overlay"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="earth-mini"></div>
+                <h1>TRAVEL.SYS</h1>
+            </div>
+            <div class="user-section">
+                <div class="user-info" id="user-info">
+                    <span class="user-name">USER.001</span>
+                    <button class="logout-btn" onclick="logout()">→ EXIT</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Search Panel -->
+        <section class="search-panel">
+            <div class="panel-header">
+                <h2>SEARCH PROTOCOL</h2>
+                <div class="status-indicator"></div>
+            </div>
+            
+            <form id="travel-form" class="search-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="city">CITY</label>
+                        <input type="text" id="city" name="city" placeholder="LOCATION.NAME" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">COUNTRY.ISO</label>
+                        <input type="text" id="country" name="country" placeholder="XX" required maxlength="2">
+                    </div>
+                </div>
+                <button type="submit" class="btn-search" id="search-btn">
+                    → EXECUTE SCAN
+                </button>
+            </form>
+        </section>
+
+        <!-- Results Panel -->
+        <section class="results-panel" id="results-panel">
+            <div class="panel-header">
+                <h2>DATA.STREAM</h2>
+                <div class="timestamp" id="timestamp"></div>
+            </div>
+            
+            <!-- Weather Data -->
+            <div class="data-block weather-block" id="weather-block">
+                <div class="block-header">
+                    <h3>WEATHER.DATA</h3>
+                    <div class="data-status">STANDBY</div>
+                </div>
+                <div class="data-grid" id="weather-grid">
+                    <div class="data-item">
+                        <span class="data-label">TEMP</span>
+                        <span class="data-value" id="temp-value">--°C</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">CONDITION</span>
+                        <span class="data-value" id="condition-value">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">HUMIDITY</span>
+                        <span class="data-value" id="humidity-value">--%</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">WIND</span>
+                        <span class="data-value" id="wind-value">-- m/s</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">PRESSURE</span>
+                        <span class="data-value" id="pressure-value">-- hPa</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">VISIBILITY</span>
+                        <span class="data-value" id="visibility-value">-- km</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Advisory -->
+            <div class="data-block advisory-block" id="advisory-block">
+                <div class="block-header">
+                    <h3>SAFETY.ADVISORY</h3>
+                    <div class="data-status">STANDBY</div>
+                </div>
+                <div class="advisory-content">
+                    <div class="safety-score" id="safety-score">
+                        <div class="score-display">
+                            <span class="score-number">-</span>
+                            <span class="score-total">/5</span>
+                        </div>
+                        <div class="score-label">RISK.LEVEL</div>
+                    </div>
+                    <div class="advisory-details">
+                        <div class="data-item">
+                            <span class="data-label">SOURCES</span>
+                            <span class="data-value" id="sources-value">--</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">UPDATED</span>
+                            <span class="data-value" id="updated-value">--</span>
+                        </div>
+                        <div class="advisory-message" id="advisory-message">
+                            NO DATA AVAILABLE
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Actions -->
+            <div class="action-panel">
+                <button id="save-data-btn" class="btn-save" disabled>
+                    → ARCHIVE DATA
+                </button>
+            </div>
+        </section>
+
+        <!-- History Panel -->
+        <section class="history-panel">
+            <div class="panel-header">
+                <h2>ARCHIVE.LOG</h2>
+                <button id="load-records-btn" class="btn-secondary">→ LOAD</button>
+            </div>
+            <div class="records-container" id="records-container">
+                <div class="empty-state">
+                    <div class="empty-icon">□</div>
+                    <p>NO ARCHIVED RECORDS</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alert System -->
+    <div id="alert-container" class="alert-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>PROCESSING REQUEST...</p>
+        </div>
+    </div>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Advisory System</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+
+    <!-- Add this right after the <body> tag -->
+                    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                    <span id="theme-icon">☀️</span>
+                    </div>
+    <div class="grid-overlay"></div>
+    <div class="auth-container">
+        <!-- Left Side - Minimalist Animation -->
+        <div class="left-side">
+            <div class="left-content">
+                <div class="logo">
+                    <div class="earth-container">
+                        <div class="orbit orbit-1">
+                            <div class="satellite"></div>
+                        </div>
+                        <div class="orbit orbit-2">
+                            <div class="satellite"></div>
+                        </div>
+                        <div class="earth"></div>
+                    </div>
+                </div>
+                
+                <h1>TRAVEL.SYS</h1>
+                <p class="tagline">Global Intelligence Network</p>
+                
+                <div class="features-minimal">
+                    <div class="feature-minimal">
+                        <div class="feature-dot"></div>
+                        <span>Real-time Weather Data</span>
+                    </div>
+                    
+                    <div class="feature-minimal">
+                        <div class="feature-dot"></div>
+                        <span>Safety Advisory System</span>
+                    </div>
+                    
+                    <div class="feature-minimal">
+                        <div class="feature-dot"></div>
+                        <span>Travel History Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Glass Morphism Auth -->
+        <div class="right-side">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>ACCESS</h2>
+                    <p>Secure Authentication Portal</p>
+                </div>
+
+                <!-- Auth Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchTab('signin')">SIGN IN</button>
+                    <button class="auth-tab" onclick="switchTab('signup')">REGISTER</button>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="alert-message" class="alert"></div>
+
+                <!-- Sign In Form -->
+                <form id="signin-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signin-email">EMAIL</label>
+                        <input type="email" id="signin-email" placeholder="user@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signin-password">PASSWORD</label>
+                        <input type="password" id="signin-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        → ACCESS SYSTEM
+                    </button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">NAME</label>
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">EMAIL</label>
+                        <input type="email" id="signup-email" placeholder="user@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">PASSWORD</label>
+                        <input type="password" id="signup-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password">CONFIRM</label>
+                        <input type="password" id="signup-confirm-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        → CREATE ACCOUNT
+                    </button>
+                </form>
+
+                <!-- Remove the old manual button and replace the divider section with: -->
+<div class="divider">
+    <span>Alternative Access</span>
+</div>
+
+
+                <!-- Forgot Password -->
+                <div class="forgot-password">
+                    <a href="#" onclick="showForgotPassword()">RESET PASSWORD</a>
+                </div>
+
+                <!-- Replace the existing g_id_onload div with this -->
+                <div id="g_id_onload"
+                data-client_id="1041372411384-g9tg7df070n1gtvefp15rm6ga9okr1cl.apps.googleusercontent.com"
+                data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+                </div>
+
+                <!-- Add the Google Sign-In button -->
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="rectangular"
+                    data-theme="filled_black"
+                    data-text="signin_with"
+                    data-size="large"
+                    data-logo_alignment="left">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
